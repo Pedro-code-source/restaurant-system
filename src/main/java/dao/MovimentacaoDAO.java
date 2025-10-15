@@ -35,7 +35,7 @@ public class MovimentacaoDAO implements DAO<MovimentacaoDeEstoque, Integer> {
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             MovimentacaoDeEstoque objeto = em.find(MovimentacaoDeEstoque.class, primaryKey);
-            if (objeto != null) { // Boa prática: verificar se o objeto existe antes de remover
+            if (objeto != null) {
                 em.remove(objeto);
             }
             em.getTransaction().commit();
@@ -58,7 +58,6 @@ public class MovimentacaoDAO implements DAO<MovimentacaoDeEstoque, Integer> {
     @Override
     public List<MovimentacaoDeEstoque> getAll() {
         try (EntityManager em = EMF.getEntityManager()) {
-            // Leituras também não precisam de begin/commit de transação
             TypedQuery<MovimentacaoDeEstoque> query = em.createQuery("select c from MovimentacaoDeEstoque c", MovimentacaoDeEstoque.class);
             List<MovimentacaoDeEstoque> lista = query.getResultList();
 

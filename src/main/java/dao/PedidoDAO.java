@@ -36,7 +36,7 @@ public class PedidoDAO implements DAO<Pedido, Integer>{
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             Pedido objeto = em.find(Pedido.class, primaryKey);
-            if (objeto != null) { // Boa prática: verificar se o objeto existe antes de remover
+            if (objeto != null) {
                 em.remove(objeto);
             }
             em.getTransaction().commit();
@@ -47,7 +47,7 @@ public class PedidoDAO implements DAO<Pedido, Integer>{
     @Override
     public Pedido getById(Integer primaryKey) {
         try (EntityManager em = EMF.getEntityManager()) {
-            // getById não precisa de transação para uma simples leitura
+
             Pedido pedido = em.find(Pedido.class, primaryKey);
             if (pedido != null) {
                 System.out.println(pedido.getStatus());
@@ -59,7 +59,7 @@ public class PedidoDAO implements DAO<Pedido, Integer>{
     @Override
     public List<Pedido> getAll() {
         try (EntityManager em = EMF.getEntityManager()) {
-            // Leituras também não precisam de begin/commit de transação
+
             TypedQuery<Pedido> query = em.createQuery("select c from Cliente c", Pedido.class);
             List<Pedido> lista = query.getResultList();
 

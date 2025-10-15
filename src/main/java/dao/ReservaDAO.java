@@ -36,7 +36,7 @@ public class ReservaDAO implements DAO<Reserva , Integer>{
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             Reserva objeto = em.find(Reserva.class, primaryKey);
-            if (objeto != null) { // Boa prática: verificar se o objeto existe antes de remover
+            if (objeto != null) {
                 em.remove(objeto);
             }
             em.getTransaction().commit();
@@ -47,7 +47,7 @@ public class ReservaDAO implements DAO<Reserva , Integer>{
     @Override
     public Reserva getById(Integer primaryKey) {
         try (EntityManager em = EMF.getEntityManager()) {
-            // getById não precisa de transação para uma simples leitura
+
             Reserva reserva = em.find(Reserva.class, primaryKey);
             if (reserva != null) {
                 System.out.println(reserva.getDataEHora());
@@ -59,7 +59,7 @@ public class ReservaDAO implements DAO<Reserva , Integer>{
     @Override
     public List<Reserva> getAll() {
         try (EntityManager em = EMF.getEntityManager()) {
-            // Leituras também não precisam de begin/commit de transação
+
             TypedQuery<Reserva> query = em.createQuery("select c from Reserva c", Reserva.class);
             List<Reserva> lista = query.getResultList();
 

@@ -34,7 +34,7 @@ public class MesaDAO implements DAO<Mesa, Integer> {
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             Mesa objeto = em.find(Mesa.class, primaryKey);
-            if (objeto != null) { // Boa prática: verificar se o objeto existe antes de remover
+            if (objeto != null) {
                 em.remove(objeto);
             }
             em.getTransaction().commit();
@@ -59,7 +59,7 @@ public class MesaDAO implements DAO<Mesa, Integer> {
     @Override
     public List<Mesa> getAll() {
         try (EntityManager em = EMF.getEntityManager()) {
-            // Leituras também não precisam de begin/commit de transação
+
             TypedQuery<Mesa> query = em.createQuery("select c from Mesa c", Mesa.class);
             List<Mesa> lista = query.getResultList();
 

@@ -7,11 +7,11 @@ import util.EMF;
 
 import java.util.List;
 
-// Esta linha já estava correta!
+
 public class ClienteDAO implements DAO<Cliente, Integer> {
 
     @Override
-    public void save(Cliente obj) { // CORREÇÃO: E -> Cliente
+    public void save(Cliente obj) {
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             em.persist(obj);
@@ -21,7 +21,7 @@ public class ClienteDAO implements DAO<Cliente, Integer> {
     }
 
     @Override
-    public void update(Cliente obj) { // CORREÇÃO: E -> Cliente
+    public void update(Cliente obj) {
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             em.merge(obj);
@@ -31,11 +31,11 @@ public class ClienteDAO implements DAO<Cliente, Integer> {
     }
 
     @Override
-    public void delete(Integer primaryKey) { // CORREÇÃO: int -> Integer (o tipo T)
+    public void delete(Integer primaryKey) {
         try (EntityManager em = EMF.getEntityManager()) {
             em.getTransaction().begin();
             Cliente objeto = em.find(Cliente.class, primaryKey);
-            if (objeto != null) { // Boa prática: verificar se o objeto existe antes de remover
+            if (objeto != null) {
                 em.remove(objeto);
             }
             em.getTransaction().commit();
@@ -43,9 +43,9 @@ public class ClienteDAO implements DAO<Cliente, Integer> {
     }
 
     @Override
-    public Cliente getById(Integer primaryKey) { // CORREÇÃO: int -> Integer (o tipo T)
+    public Cliente getById(Integer primaryKey) {
         try (EntityManager em = EMF.getEntityManager()) {
-            // getById não precisa de transação para uma simples leitura
+
             Cliente cliente = em.find(Cliente.class, primaryKey);
             if (cliente != null) {
                 System.out.println(cliente.getNome());
@@ -55,9 +55,9 @@ public class ClienteDAO implements DAO<Cliente, Integer> {
     }
 
     @Override
-    public List<Cliente> getAll() { // Este método já estava correto!
+    public List<Cliente> getAll() {
         try (EntityManager em = EMF.getEntityManager()) {
-            // Leituras também não precisam de begin/commit de transação
+
             TypedQuery<Cliente> query = em.createQuery("select c from Cliente c", Cliente.class);
             List<Cliente> lista = query.getResultList();
 
