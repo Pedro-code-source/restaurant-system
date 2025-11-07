@@ -1,17 +1,11 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 import java.util.Objects;
 
 @Entity
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Cliente extends Usuario {
 
     private String nome;
 
@@ -21,14 +15,6 @@ public class Cliente {
 
     public Cliente(){
 
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -59,18 +45,18 @@ public class Cliente {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return id == cliente.id && telefone == cliente.telefone && Objects.equals(nome, cliente.nome) && Objects.equals(endereco, cliente.endereco);
+        return getId() == cliente.getId() && telefone == cliente.telefone && Objects.equals(nome, cliente.nome) && Objects.equals(endereco, cliente.endereco);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, telefone, endereco);
+        return Objects.hash(getId(), nome, telefone, endereco);
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "id=" + id +
+                "id=" + getId() + '\'' +
                 ", nome='" + nome + '\'' +
                 ", telefone=" + telefone +
                 ", endereco='" + endereco + '\'' +
