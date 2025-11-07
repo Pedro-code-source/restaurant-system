@@ -1,4 +1,6 @@
 <hr>
+
 Modelo Conceitual
-<img src="![imagem modelo conceitual](https://github.com/user-attachments/assets/05d590f7-4b84-48c6-be95-e65e921d0434)">
+![imagem modelo conceitual](https://github.com/user-attachments/assets/cf5d8f93-88c1-485b-9690-999794568e8b)
+
 <hr>
