@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Objects;
+
 @Entity
 public class Cliente {
     @Id
@@ -53,5 +55,25 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return id == cliente.id && telefone == cliente.telefone && Objects.equals(nome, cliente.nome) && Objects.equals(endereco, cliente.endereco);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, telefone, endereco);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", telefone=" + telefone +
+                ", endereco='" + endereco + '\'' +
+                '}';
+    }
 }

@@ -8,6 +8,17 @@
 
 		<!-- TODO: Adicionar as entidades que vocês criaram -->
 		<!-- <class>br.edu.ifpb.es.daw.entities.Book</class> -->
+        <class>br.edu.ifpb.es.daw.entities.Usuario</class>
+        <class>br.edu.ifpb.es.daw.entities.Cliente</class>
+        <class>br.edu.ifpb.es.daw.entities.Garcom</class>
+        <class>br.edu.ifpb.es.daw.entities.Pedido</class>
+        <class>br.edu.ifpb.es.daw.entities.PedidoOnline</class>
+        <class>br.edu.ifpb.es.daw.entities.PedidoPresencial</class>
+        <class>br.edu.ifpb.es.daw.entities.Entrega</class>
+        <class>br.edu.ifpb.es.daw.entities.Mesa</class>
+        <class>br.edu.ifpb.es.daw.entities.Reserva</class>
+        <class>br.edu.ifpb.es.daw.entities.Ingredientes</class>
+        <class>br.edu.ifpb.es.daw.entities.MovimentacaoDeEstoque</class>
 
 		<properties>
 

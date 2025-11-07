@@ -4,6 +4,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Objects;
+
 public class PedidoPresencial {
 
     @Id
@@ -49,5 +51,27 @@ public class PedidoPresencial {
 
     public void setFormaDePagamento(String formaDePagamento) {
         this.formaDePagamento = formaDePagamento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PedidoPresencial that = (PedidoPresencial) o;
+        return id == that.id && Float.compare(valorFinal, that.valorFinal) == 0 && Objects.equals(status, that.status) && Objects.equals(formaDePagamento, that.formaDePagamento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, valorFinal, status, formaDePagamento);
+    }
+
+    @Override
+    public String toString() {
+        return "PedidoPresencial{" +
+                "id=" + id +
+                ", valorFinal=" + valorFinal +
+                ", status='" + status + '\'' +
+                ", formaDePagamento='" + formaDePagamento + '\'' +
+                '}';
     }
 }

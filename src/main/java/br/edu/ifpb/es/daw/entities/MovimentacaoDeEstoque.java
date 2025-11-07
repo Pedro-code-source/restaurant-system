@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class MovimentacaoDeEstoque {
@@ -54,5 +55,27 @@ public class MovimentacaoDeEstoque {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        MovimentacaoDeEstoque that = (MovimentacaoDeEstoque) o;
+        return id == that.id && quantidade == that.quantidade && Objects.equals(dataCriacao, that.dataCriacao) && Objects.equals(tipoDeMovimentacao, that.tipoDeMovimentacao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dataCriacao, tipoDeMovimentacao, quantidade);
+    }
+
+    @Override
+    public String toString() {
+        return "MovimentacaoDeEstoque{" +
+                "id=" + id +
+                ", dataCriacao=" + dataCriacao +
+                ", tipoDeMovimentacao='" + tipoDeMovimentacao + '\'' +
+                ", quantidade=" + quantidade +
+                '}';
     }
 }

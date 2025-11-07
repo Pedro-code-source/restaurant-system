@@ -16,6 +16,5 @@ public class MainClienteSave {
             em.persist(cliente);
             em.getTransaction().commit();
         }
-
     }
 }

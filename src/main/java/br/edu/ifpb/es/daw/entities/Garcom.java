@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Objects;
+
 @Entity
 public class Garcom {
 
@@ -32,5 +34,25 @@ public class Garcom {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Garcom garcom = (Garcom) o;
+        return id == garcom.id && Objects.equals(nome, garcom.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome);
+    }
+
+    @Override
+    public String toString() {
+        return "Garcom{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }
