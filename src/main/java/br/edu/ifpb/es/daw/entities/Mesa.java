@@ -1,14 +1,19 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Mesa {
+
+    @OneToMany(mappedBy = "mesa")
+    private List<Reserva> reservas;
+
+    @OneToMany(mappedBy = "mesa")
+    private List<PedidoPresencial> pedidos;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

@@ -1,11 +1,16 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Garcom extends Usuario {
+
+    @OneToMany(mappedBy = "garcom")
+    private List<PedidoPresencial> pedidosAtendidos;
 
     private String nome;
 

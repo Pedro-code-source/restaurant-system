@@ -1,15 +1,43 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "TB_PEDIDO_PRESENCIAL")
 public class PedidoPresencial extends Pedido{
 
+    @ManyToOne
+    @JoinColumn(name = "id_mesa", nullable = false)
+    private Mesa mesa;
+
+    @ManyToOne
+    @JoinColumn(name = "id_garcom")
+    private Garcom garcom;
+
     public PedidoPresencial(){
+
     }
 
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public Garcom getGarcom() {
+        return garcom;
+    }
+
+    public void setGarcom(Garcom garcom) {
+        this.garcom = garcom;
+    }
 
     @Override
     public boolean equals(Object o) {

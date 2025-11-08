@@ -1,15 +1,21 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Reserva {
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", nullable = false)
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_mesa", nullable = false)
+    private Mesa mesa;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

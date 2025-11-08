@@ -1,14 +1,16 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Ingredientes {
+
+    @ManyToMany(mappedBy = "ingredientes")
+    private List<MovimentacaoDeEstoque> movimentacoes;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

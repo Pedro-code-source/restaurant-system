@@ -1,15 +1,19 @@
 package br.edu.ifpb.es.daw.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class MovimentacaoDeEstoque {
+
+    @ManyToMany
+    @JoinTable( name = "TB_MOVIMENTAÇÃO_INGREDIENTE",  joinColumns = @JoinColumn(name = "id_movimentacao"),
+            inverseJoinColumns = @JoinColumn(name = "id_ingrediente"))
+
+    private List<Ingredientes> ingredientes;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,10 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,8 +16,14 @@ public class Cliente extends Usuario {
 
     private String endereco;
 
-    public Cliente(){
+    @OneToMany(mappedBy = "cliente")
+    ArrayList<Pedido> pedidos;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Reserva> reservas;
+
+    public Cliente(){
+        pedidos = new ArrayList<>();
     }
 
     public String getNome() {
