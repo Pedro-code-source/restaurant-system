@@ -1,5 +1,7 @@
 package br.edu.ifpb.es.daw.dao;
 
+import br.edu.ifpb.es.daw.entities.Cliente;
+
 import java.util.List;
 
 public interface DAO<E, T> {

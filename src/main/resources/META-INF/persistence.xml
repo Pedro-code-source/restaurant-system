@@ -3,11 +3,22 @@
 			 xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
 
-	<persistence-unit name="daw" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="restaurant" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- TODO: Adicionar as entidades que vocês criaram -->
 		<!-- <class>br.edu.ifpb.es.daw.entities.Book</class> -->
+        <class>br.edu.ifpb.es.daw.entities.Usuario</class>
+        <class>br.edu.ifpb.es.daw.entities.Cliente</class>
+        <class>br.edu.ifpb.es.daw.entities.Garcom</class>
+        <class>br.edu.ifpb.es.daw.entities.Pedido</class>
+        <class>br.edu.ifpb.es.daw.entities.PedidoOnline</class>
+        <class>br.edu.ifpb.es.daw.entities.PedidoPresencial</class>
+        <class>br.edu.ifpb.es.daw.entities.Entrega</class>
+        <class>br.edu.ifpb.es.daw.entities.Mesa</class>
+        <class>br.edu.ifpb.es.daw.entities.Reserva</class>
+        <class>br.edu.ifpb.es.daw.entities.Ingredientes</class>
+        <class>br.edu.ifpb.es.daw.entities.MovimentacaoDeEstoque</class>
 
 		<properties>
 
@@ -15,9 +26,9 @@
 			<!--
 			 -->
 			<property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/daw" />
-			<property name="jakarta.persistence.jdbc.user" value="daw" />
-			<property name="jakarta.persistence.jdbc.password" value="daw" />
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ep-plain-scene-acy2osyk-pooler.sa-east-1.aws.neon.tech/neondb" />
+			<property name="jakarta.persistence.jdbc.user" value="neondb_owner" />
+			<property name="jakarta.persistence.jdbc.password" value="npg_sDYE5m8IgwLt" />
 			<!-- /Database PostgreSQL-->
 
 			<!-- HIBERNATE -->
