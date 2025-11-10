@@ -40,9 +40,16 @@ public class MovimentacaoDeEstoque {
     public Date getDataCriacao() {
         return dataCriacao;
     }
+    public List<Ingredientes> getIngrediente(){
+        return ingredientes;
+    }
 
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public void setIngrediente(List<Ingredientes> ingrediente) {
+        this.ingredientes = ingrediente;
     }
 
     public String getTipoDeMovimentacao() {

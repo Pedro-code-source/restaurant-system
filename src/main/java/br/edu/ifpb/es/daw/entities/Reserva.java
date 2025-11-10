@@ -50,6 +50,15 @@ public class Reserva {
     public void setDataEHora(Date dataEHora) {
         this.dataEHora = dataEHora;
     }
+    public void setMesa(Mesa mesa){
+        this.mesa = mesa;
+
+
+    }
+
+    public void setCliente(Cliente cliente){
+        this.cliente = cliente;
+    }
 
     @Override
     public boolean equals(Object o) {

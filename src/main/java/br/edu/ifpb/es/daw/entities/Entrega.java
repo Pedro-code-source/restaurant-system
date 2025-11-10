@@ -14,9 +14,9 @@ public class Entrega {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String nome;
+    private String nomeEntregador;
 
-    private int telefone;
+    private int telefoneEntregador;
 
     public Entrega(){
 
@@ -30,40 +30,40 @@ public class Entrega {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeEntregador() {
+        return nomeEntregador;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeEntregador(String nomeEntregador) {
+        this.nomeEntregador = nomeEntregador;
     }
 
-    public int getTelefone() {
-        return telefone;
+    public int getTelefoneEntregador() {
+        return telefoneEntregador;
     }
 
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setTelefoneEntregador(int telefoneEntregador) {
+        this.telefoneEntregador = telefoneEntregador;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Entrega entrega = (Entrega) o;
-        return id == entrega.id && telefone == entrega.telefone && Objects.equals(nome, entrega.nome);
+        return id == entrega.id && telefoneEntregador == entrega.telefoneEntregador && Objects.equals(nomeEntregador, entrega.nomeEntregador);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, telefone);
+        return Objects.hash(id, nomeEntregador, telefoneEntregador);
     }
 
     @Override
     public String toString() {
         return "Entrega{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", telefone=" + telefone +
+                ", nome='" + nomeEntregador + '\'' +
+                ", telefone=" + telefoneEntregador +
                 '}';
     }
 }
