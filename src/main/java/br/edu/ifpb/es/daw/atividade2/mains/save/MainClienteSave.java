@@ -2,15 +2,8 @@ package br.edu.ifpb.es.daw.atividade2.mains.save;
 
 import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
 import br.edu.ifpb.es.daw.dao.impl.ClienteDAOImpl;
-import br.edu.ifpb.es.daw.dao.impl.PedidoDAOImpl;
-import br.edu.ifpb.es.daw.dao.impl.ReservaDAOImpl;
 import br.edu.ifpb.es.daw.dao.intefarcesDaos.ClienteDAO;
-import br.edu.ifpb.es.daw.dao.intefarcesDaos.PedidoDAO;
-import br.edu.ifpb.es.daw.dao.intefarcesDaos.ReservaDAO;
 import br.edu.ifpb.es.daw.entities.Cliente;
-import br.edu.ifpb.es.daw.entities.Reserva;
-import br.edu.ifpb.es.daw.util.JPAUtil;
-import jakarta.persistence.EntityManager;
 
 public class MainClienteSave {
     public static void main(String[] args) throws PersistenciaDawException {

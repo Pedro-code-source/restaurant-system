@@ -10,8 +10,6 @@ import br.edu.ifpb.es.daw.dao.intefarcesDaos.ReservaDAO;
 import br.edu.ifpb.es.daw.entities.Cliente;
 import br.edu.ifpb.es.daw.entities.Mesa;
 import br.edu.ifpb.es.daw.entities.Reserva;
-import br.edu.ifpb.es.daw.util.JPAUtil;
-import jakarta.persistence.EntityManager;
 
 import java.util.Date;
 
@@ -48,12 +46,8 @@ public class MainReservaSave {
         reservaDAO.save(reserva);
 
         try {
-            // ... toda a sua lógica de instanciar e salvar Cliente, Mesa, e Reserva ...
-
-            reservaDAO.save(reserva); // Persiste a Reserva
-
+            reservaDAO.save(reserva);
             System.out.println("Reserva salva com sucesso! ID: " + reserva.getId());
-
         } catch (PersistenciaDawException e) {
             System.err.println("Erro de Persistência: " + e.getMessage());
             e.printStackTrace();

@@ -1,20 +1,14 @@
 package br.edu.ifpb.es.daw.atividade2.mains.save;
 
 import br.edu.ifpb.es.daw.entities.MovimentacaoDeEstoque;
-import br.edu.ifpb.es.daw.util.JPAUtil;
-import jakarta.persistence.EntityManager;
 import br.edu.ifpb.es.daw.dao.intefarcesDaos.MovimentacaoDeEstoqueDAO;
 import br.edu.ifpb.es.daw.dao.impl.MovimentacaoDAOImpl;
 import br.edu.ifpb.es.daw.dao.intefarcesDaos.IngredientesDAO;
 import br.edu.ifpb.es.daw.dao.impl.IngredientesDAOImpl;
 import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
-import br.edu.ifpb.es.daw.entities.MovimentacaoDeEstoque;
 import br.edu.ifpb.es.daw.entities.Ingredientes;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import java.util.Date;
 
 public class MainMovimentacaoSave {
