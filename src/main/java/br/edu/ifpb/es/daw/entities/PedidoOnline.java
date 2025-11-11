@@ -2,26 +2,27 @@ package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "TB_PEDIDO_ONLINE")
 public class PedidoOnline extends Pedido{
 
-    @OneToOne
-    @JoinColumn(name = "id_entrega", unique = true, nullable = false)
-    private Entrega entrega;
+    @ManyToOne
+    @JoinColumn(name = "id_entrega")
+    private Entrega entregas;
 
     public PedidoOnline() {
 
     }
 
-    public Entrega getEntrega() {
-        return entrega;
+    public void setEntregas(Entrega entregas) {
+        this.entregas = entregas;
     }
 
-    public void setEntrega(Entrega entrega) {
-        this.entrega = entrega;
+    public Entrega getEntregas() {
+        return entregas;
     }
 
     @Override

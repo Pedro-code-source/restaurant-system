@@ -17,7 +17,7 @@ public class Cliente extends Usuario {
     private String endereco;
 
     @OneToMany(mappedBy = "cliente")
-    ArrayList<Pedido> pedidos;
+    List<Pedido> pedidos;
 
     @OneToMany(mappedBy = "cliente")
     private List<Reserva> reservas;

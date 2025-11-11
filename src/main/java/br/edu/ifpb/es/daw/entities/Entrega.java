@@ -2,13 +2,14 @@ package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Entrega {
 
-    @OneToOne(mappedBy = "entrega")
-    private PedidoOnline pedidoOnline;
+    @OneToMany(mappedBy = "entregas")
+    private List<PedidoOnline> pedidoOnline;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +21,14 @@ public class Entrega {
 
     public Entrega(){
 
+    }
+
+    public List<PedidoOnline> getPedidoOnline() {
+        return pedidoOnline;
+    }
+
+    public void setPedidoOnline(List<PedidoOnline> pedidoOnline) {
+        this.pedidoOnline = pedidoOnline;
     }
 
     public int getId() {
